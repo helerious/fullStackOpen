@@ -1,0 +1,36 @@
+PART 0.4    
+sequenceDiagram
+    participant Browser
+    participant Server
+    Browser->>+Server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+    Server-->>-Browser: HTML document
+    Browser->>+Server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    Server-->>-Browser: HTML document
+    Browser->>+Server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    Server-->>-Browser: css document
+    Browser->>+Server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    Server-->>-Browser: javascript document
+    Browser->>+Server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    Server-->>-Browser: json document e.g. [{content: "", date: "2024-02-12T02:57:03.894Z"},…]
+
+PART 0.5
+sequenceDiagram
+    participant Browser
+    participant Server
+    Browser->>+Server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+    Server-->>-Browser: HTML document
+    Browser->>+Server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    Server-->>-Browser: css document
+    Browser->>+Server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+    Server-->>-Browser: javascript document
+    Browser->>+Server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    Server-->>-Browser: json document e.g. [{"content": "asd","date": "2024-02-12T08:00:28.095Z"},...]
+
+
+PART 0.6
+sequenceDiagram
+    participant Browser
+    participant Server
+    Browser->>+Server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    Server-->>-Browser: JSON document e.g. {"message":"note created"}
+
