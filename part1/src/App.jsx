@@ -7,18 +7,21 @@ const Header = (props) =>{
 }
 const Content = (props) =>{
   console.log("content props is", props)
+  console.log("content props [0] name is", props.parts[0].name)
   return (
     <div>
-      <Part part = {props.part1} and exercise = {props.exercise1} />
-      <Part part = {props.part2} and exercise = {props.exercise2} />
-      <Part part = {props.part3} and exercise = {props.exercise3} />
+      <Part part = {props.parts[0].name} and exercise = {props.parts[0].exercises} />
+      <Part part = {props.parts[1].name} and exercise = {props.parts[1].exercises} />
+      <Part part = {props.parts[2].name} and exercise = {props.parts[2].exercises} />
     </div>
   )
 }
 const Total = (props) =>{
+  const sum = props.total[0].exercises + props.total[1].exercises + props.total[0].exercises
+  console.log(sum)
   return (
     <div>
-      <p>Number of exercises {props.count1 + props.count2 + props.count3}</p>
+      <p>Number of exercises {props.total[0].exercises + props.total[1].exercises + props.total[2].exercises}</p>
     </div>
   )
 }
@@ -50,10 +53,8 @@ const App = () => {
   return (
     <div>
       <Header course = {course} />
-      <Content part1 = {parts[0].name} and exercise1 = {parts[0].exercises} />
-      <Content part2 = {parts[1].name} and exercise2 = {parts[1].exercises} />
-      <Content part3 = {parts[2].name} and exercise3 = {parts[2].exercises} />
-      <Total count1 = {parts[0].exercises} count2 = {parts[1].exercises} count3 = {parts[2].exercises}/>
+      <Content parts = {parts} />
+      <Total total = {parts}/>
     </div>
   )
 }
